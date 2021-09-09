@@ -109,8 +109,32 @@ for name, model in models:
 	print('%s: %f (%f)' % (name, cv_results.mean(), cv_results.std())) 
 
 # Compare Algorithms, So we can get a better idea of the best model
-pyplot.boxplot(results, labels=names) 
-pyplot.title('Algorithm Comparison') 
-pyplot.show() 
+#pyplot.boxplot(results, labels=names) 
+#pyplot.title('Algorithm Comparison') 
+#pyplot.show() 
 
 #endregion
+
+#region Make Predictions
+
+# Make predictions on validation dataset
+model = SVC(gamma='auto')
+model.fit(X_train, Y_train)
+predictions = model.predict(X_validation)
+
+# Evaluate predictions 
+print('')
+print('Evaluate Predictions')
+# We can see the accuracy is 96% 
+print('Accuracy score: ' , accuracy_score(Y_validation, predictions)) 
+# confusion matrix shows amount of errors made
+print('')
+print('Confusion matrix')
+print(confusion_matrix(Y_validation, predictions)) 
+# classification report provides a breakdown of each class by precision, recall, f1-score and support
+print('')
+print('Classification report')
+print(classification_report(Y_validation, predictions)) 
+
+#endregion
+
