@@ -26,3 +26,15 @@ from sklearn.svm import SVC
 url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
 dataset = read_csv(url, names=names)
+
+# Shape, counts instances and attributes
+print(dataset.shape)
+
+# Head, see the first 20 rows
+print(dataset.head(20)) 
+
+# Descriptions, get count, mean, min, max and percentages of each attribute
+print(dataset.describe()) 
+
+# Class distribution, get the number of instances that belong to each class in this case its 50 instances for each case
+print(dataset.groupby('class').size()) 
