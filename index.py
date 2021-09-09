@@ -38,3 +38,19 @@ print(dataset.describe())
 
 # Class distribution, get the number of instances that belong to each class in this case its 50 instances for each case
 print(dataset.groupby('class').size()) 
+
+# Box and whisker plots 
+# plots of each individual variable 
+# gives us idea of distribution of the input varibales
+# in this case most sepal length is between 5 and 6.5 and the middle of this is 5.9
+dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False) 
+pyplot.show() 
+
+# Histograms, get idea of distibution
+dataset.hist() 
+pyplot.show() 
+
+# Scatter plot matrix, spot structured relationships
+# A diagonal grouping suggests high correlation and a predictable relationship
+scatter_matrix(dataset) 
+pyplot.show() 
